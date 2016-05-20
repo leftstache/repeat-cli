@@ -12,7 +12,7 @@ def get_packages(root_dir):
 
 setup(
     name='repeat-cli',
-    version='1.0.0',
+    version='1.0.1',
     author='Joel Johnson',
     author_email='joelj@joelj.com',
     packages=['repeat_cli'],
