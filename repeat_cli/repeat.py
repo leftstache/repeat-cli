@@ -44,7 +44,7 @@ def execute(
                     exit_code = 0
                 return exit_code
         time.sleep(interval)
-        count += 1
+        i += 1
 
 
 def beep():
