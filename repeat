@@ -7,6 +7,8 @@ import argparse
 
 def main():
     arg_parser = argparse.ArgumentParser(description="Repeats a given command until specified conditions are met")
+    arg_parser.add_argument('-c', '--count', type=int, default=0,
+                            help='Runs the downstream command at most this many times. "0" for infinite. Default: 0.')
     arg_parser.add_argument('-q', '--quit-on-zero', action='store_true',
                             help='Stops repeating when the given command exits 0')
     arg_parser.add_argument('-b', '--beep-on-zero', action='store_true',

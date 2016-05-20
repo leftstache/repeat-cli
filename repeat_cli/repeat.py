@@ -5,6 +5,7 @@ import time
 
 def execute(
         command,
+        count=0,
         quit_on_zero=False,
         beep_on_zero=False,
         quit_on_nonzero=False,
@@ -12,7 +13,7 @@ def execute(
         always_exit_zero=False,
         print_exit_code=False,
         silent=False,
-        interval= 1,
+        interval=1,
 ):
     stdout = sys.stdout
     stderr = sys.stderr
@@ -21,7 +22,8 @@ def execute(
         stdout = subprocess.DEVNULL
         stderr = subprocess.DEVNULL
 
-    while True:
+    i = 0
+    while count <= 0 or i < count:
         exit_code = subprocess.call(command, stdout=stdout, stderr=stderr, stdin=sys.stdin)
 
         if print_exit_code:
@@ -40,6 +42,7 @@ def execute(
                     exit_code = 0
                 return exit_code
         time.sleep(interval)
+        count += 1
 
 
 def beep():
